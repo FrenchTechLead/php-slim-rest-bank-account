@@ -57,9 +57,9 @@ class SuperUserController extends Controller{
         $responseArray = [];
         /** @var em $em */
         $em = $this->container->em;
-        $user = JWTController::getUserFromRequest($request, $em);
-        if($user->getIs_superUser() != 1)return $response->withJson(array("connection"=>"fail", "error"=>"You are not a superUser"),403);
-        $responseArray["connected_user"]=array("id"=>$user->getId(), "email"=>$user->getEmail());
+        //$user = JWTController::getUserFromRequest($request, $em);
+        //if($user->getIs_superUser() != 1)return $response->withJson(array("connection"=>"fail", "error"=>"You are not a superUser"),403);
+        //$responseArray["connected_user"]=array("id"=>$user->getId(), "email"=>$user->getEmail());
 
         $fields = ['email','pass', 'is_superuser','nom'];
         $data = $request->getParsedBody();
