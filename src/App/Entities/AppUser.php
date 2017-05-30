@@ -8,7 +8,7 @@ use \App\Entity as Entity;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="user")
+ * @ORM\Table(name="appUser")
  */
 class AppUser extends Entity
 {
