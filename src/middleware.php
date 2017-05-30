@@ -35,7 +35,7 @@ $app->add(function (Request $request,Response $response, $next) use ($app, $publ
             ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS, PATCH');
     }
-    $stringToken = $request->getHeader("Authorization");
+    $stringToken = $request->getHeader("Authorization")[0];
     if($stringToken == NULL){
         return $response->withJson(array("Connection"=>"Fail On Token", "Error"=>"No token Provided."),401);
     }else{
