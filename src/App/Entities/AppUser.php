@@ -26,7 +26,7 @@ class AppUser extends Entity
      */
     protected $name;
     /**
-     * @ORM\Column(type="string", length=32)
+     * @ORM\Column(type="string", length=120)
      * @var string
      */
     protected $password;
