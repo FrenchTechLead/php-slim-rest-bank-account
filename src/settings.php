@@ -11,7 +11,8 @@ return [
         ],
 
         "public_routes"=>[
-            "/v1/authenticate"
+            "/v1/authenticate",
+            "/v1/users"
 
         ], // these routes don't need Authentification
 
