@@ -25,10 +25,10 @@ $app->add(function (Request $request,Response $response, $next) use ($app, $publ
 
     $route = $request->getRequestTarget(); // these routes don't need Authentication
 
-    if(in_array($route,  $public_routes)){
+    //if(in_array($route,  $public_routes)){
         $response = $next($request, $response);
         return $response;
-    }
+    //}
     if($request->isOptions()){
         return $response
             ->withHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
