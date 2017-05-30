@@ -61,9 +61,8 @@ class SuperUserController extends Controller{
         if($user->getIs_superUser() != 1)return $response->withJson(array("connection"=>"fail", "error"=>"You are not a superUser"),403);
         $responseArray["connected_user"]=array("id"=>$user->getId(), "email"=>$user->getEmail());
 
-        $fields = ['email','password', 'is_superuser','name'];
+        $fields = ['email','password', 'is_superuser','username'];
         $data = $request->getParsedBody();
-        print_r($data);die;
         if(! $this->checkAllDataFields($data,$fields))return $response->withJson(["error"=>["message"=>"Missing data"]],400);// just to check that all required data has been posted
 
         $checkEmailExists = $em->getRepository('App\Entities\AppUser')
@@ -72,7 +71,7 @@ class SuperUserController extends Controller{
 
         $userToAdd = new \App\Entities\AppUser();
 
-        $userToAdd->setName($data["name"]);
+        $userToAdd->setName($data["username"]);
         $userToAdd->setEmail($data["email"]);
         $userToAdd->setPassword($data["password"]);
         $userToAdd->setIs_superuser($data["is_superuser"]);

@@ -21,8 +21,10 @@ class Controller
 
     public function checkAllDataFields($data, $fields){
         foreach($fields as $f){
-            if (empty($data[$f]))
+                if (strlen($data[$f])==0){
                 return false;
+            }
+
         }
         return true;
     }
