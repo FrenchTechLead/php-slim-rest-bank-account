@@ -63,6 +63,7 @@ class SuperUserController extends Controller{
 
         $fields = ['email','password', 'is_superuser','name'];
         $data = $request->getParsedBody();
+        print_r($data);die;
         if(! $this->checkAllDataFields($data,$fields))return $response->withJson(["error"=>["message"=>"Missing data"]],400);// just to check that all required data has been posted
 
         $checkEmailExists = $em->getRepository('App\Entities\AppUser')
