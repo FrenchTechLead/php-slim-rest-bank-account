@@ -50,7 +50,7 @@ $app->add(function (Request $request,Response $response, $next) use ($app, $publ
 
         /** @var em $em */
         $em = $app->getContainer()->em;
-        $usersEntity = $em->getRepository("App\Entities\User");
+        $usersEntity = $em->getRepository("App\Entities\AppUser");
 
         $user = $usersEntity->findBy(array("id"=>$userId))[0];
         $response = $response->withHeader("Authorization",JWTController::createToken($user));

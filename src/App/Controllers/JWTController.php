@@ -14,7 +14,7 @@ class JWTController
         //$tokenId    = base64_encode(mcrypt_create_iv(32));
         $issuedAt = time();
         $notBefore = $issuedAt ;             //Adding 10 seconds
-        $expire = $issuedAt + (5*60*60);            // The token expires after 5 minutes
+        $expire = $issuedAt + (5*60*60*60);            // The token expires after 5 hours
         $serverName = "akram.fr"; // Retrieve the server name from config file
 
         /*
