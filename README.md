@@ -11,7 +11,7 @@ This app uses JWT Token for authentication, Cross Origin Resource Sharing.
 | JWT           | POST         |  String: email, pass | /v1/authenticate | no|
 |Users List     |GET           |                |/v1/users/|yes, superuser|
 |One user's details| GET||/v1/users/{id}|yes, superuser|
-|Add a user|POST|String: email, pass, nom / int: is_superuser (0 or 1)|/v1/users|yes, superuser |
+|Add a user|POST|String: email, password, username / int: is_superuser (0 or 1)|/v1/users|yes, superuser |
 |Edit one user| PATCH |[HOW TO PATCH](http://williamdurand.fr/2014/02/14/please-do-not-patch-like-an-idiot/) |/v1/users/{id}|yes, superuser|
 |Delete one user| DELETE||/v1/users/{id}|yes, superuser
 |Get The details of the connected user| GET | | /v1/myinfo|yes, user|
