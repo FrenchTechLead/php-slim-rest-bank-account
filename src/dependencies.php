@@ -23,7 +23,7 @@ $container["AuthenticationController"] = function ($container){
     return new \App\Controllers\AuthenticationController($container);
 };
 
-// User Controller
+// AppUser Controller
 $container["UserController"] = function ($container){
     return new \App\Controllers\UserController($container);
 };

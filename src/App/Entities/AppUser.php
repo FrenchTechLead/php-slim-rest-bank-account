@@ -10,7 +10,7 @@ use \App\Entity as Entity;
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
-class User extends Entity
+class AppUser extends Entity
 {
     /**
      * @ORM\Column(type="string", length=255)

@@ -6,7 +6,7 @@ use gamringer\JSONPatch\Operation\Exception;
 use Slim\Http\Request as Request;
 use Slim\Http\Response as Response;
 use \App\Controllers\JWTController as JWTController;
-use \App\Entities\User as User;
+use \App\Entities\AppUser as User;
 use \Doctrine\ORM\EntityManager as em ;
 use Doctrine\ORM\Query;
 use \gamringer\JSONPatch\Patch as Patch;
@@ -65,11 +65,11 @@ class SuperUserController extends Controller{
         $data = $request->getParsedBody();
         //if(! $this->checkAllDataFields($data,$fields))return $response->withJson(["error"=>["message"=>"Missing data"]],400);// just to check that all required data has been posted
 
-        $checkEmailExists = $em->getRepository('App\Entities\User')
+        $checkEmailExists = $em->getRepository('App\Entities\AppUser')
             ->findOneBy(array('email' => $data["email"]));
         if($checkEmailExists != null)return $response->withJson(array("connection"=>"fail", "error"=>"The email already exists"),500);
 
-        $userToAdd = new \App\Entities\User();
+        $userToAdd = new \App\Entities\AppUser();
 
         $userToAdd->setName($data["nom"]);
         $userToAdd->setEmail($data["email"]);
@@ -114,7 +114,7 @@ class SuperUserController extends Controller{
 
         $usersRepository = $em->getRepository("App\Entities\User");
 
-        /** @var User $userToPatch */
+        /** @var AppUser $userToPatch */
         $userToPatch = $usersRepository->find($args["id"]);
         if($userToPatch == null)return $response->withJson(array("connection"=>"fail", "error"=>"The user with the id ".$args["id"]." does not exist"),403);
         $userToPatchArray = $userToPatch->toPatchArray();

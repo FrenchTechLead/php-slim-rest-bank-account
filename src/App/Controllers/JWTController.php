@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use \App\Entities\User as User;
+use \App\Entities\AppUser as User;
 use \Firebase\JWT\JWT as JWT;
 use Slim\Http\Request;
 
@@ -9,7 +9,7 @@ class JWTController
 {
     static $secretKey = "just_a_stupid_key_now";
 
-    public static function createToken(User $user){
+    public static function createToken(AppUser $user){
 
         //$tokenId    = base64_encode(mcrypt_create_iv(32));
         $issuedAt = time();
@@ -28,7 +28,7 @@ class JWTController
             'exp' => $expire,           // Expire
             'data' => [                  // Data related to the signer user
                 'userId' => $user->getId(), // userid from the users table
-                'superuser' => $user->getIs_superuser(), // User name
+                'superuser' => $user->getIs_superuser(), // AppUser name
             ]
         ];
 

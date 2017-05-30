@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use \App\Entities\User as User;
+use \App\Entities\AppUser as User;
 use \Doctrine\ORM\EntityManager as em ;
 use \Slim\HTTP\Request as Request;
 use \Slim\HTTP\Response as Response;
@@ -23,7 +23,7 @@ class AuthenticationController extends Controller
         /** @var em $em */
         $em = $this->container->em;
         $usersEntity = $em->getRepository("App\Entities\User");
-        /** @var User $user */
+        /** @var AppUser $user */
         $user = $usersEntity->findOneBy(array("email"=>$email, "password"=>$pass));
         if($user == null)return $response->withJson(array("connection"=>"fail", "error"=>"wrong email or password"),403);
         $token = JWTController::createToken($user);

@@ -24,7 +24,7 @@ class Operations extends Entity  {
     protected $amount;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\App\Entities\User")
+     * @ORM\ManyToOne(targetEntity="\App\Entities\AppUser")
      * @ORM\JoinColumn(nullable=false)
      */
     private $client;
