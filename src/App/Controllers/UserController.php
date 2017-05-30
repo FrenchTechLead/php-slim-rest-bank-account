@@ -72,7 +72,7 @@ class UserController extends Controller{
         $data = $request->getParsedBody();
 
         $user = JWTController::getUserFromRequest($request, $em);
-        $user = $em->find("\App\Entities\User", $user->getId());
+        $user = $em->find("\App\Entities\AppUser", $user->getId());
         $user->setEmail($data['email']);
         $user->setPassword($data['password']);
         $em->persist($user);
@@ -86,7 +86,7 @@ class UserController extends Controller{
         $data = $request->getParsedBody();
 
         $user = JWTController::getUserFromRequest($request, $em);
-        $userSrepo= $em->getRepository("\App\Entities\User");
+        $userSrepo= $em->getRepository("\App\Entities\AppUser");
         $userToCredit = $userSrepo->findBy(array("email"=>$data["email"]))[0];
         if($userToCredit == null)return $response->withJson(array("error"=>"no user found with this email"),503);
 

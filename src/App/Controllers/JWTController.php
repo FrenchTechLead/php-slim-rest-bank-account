@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use \App\Entities\AppUser as User;
+use \App\Entities\AppUser as AppUser;
 use \Firebase\JWT\JWT as JWT;
 use Slim\Http\Request;
 
@@ -55,7 +55,7 @@ class JWTController
         $token = self::decodeToken($request);
         $userId = $token->data->userId;
 
-        $usersEntity = $em->getRepository("App\Entities\User");
+        $usersEntity = $em->getRepository("App\Entities\AppUser");
         $user = $usersEntity->findBy(array("id"=>$userId))[0];
         return $user;
     }
