@@ -9,7 +9,7 @@ $public_routes = $settings["settings"]["public_routes"];
 
 //Cross-Origin-middle-ware
 $corsOptions = array(
-    "origin" => "http://localhost:3000",
+    "origin" => "*",
     "exposeHeaders" => array("Authorization","Content-Type"),
     "allowMethods" => array('GET', 'POST', 'DELETE','OPTIONS','PATCH')
 );
@@ -31,7 +31,7 @@ $app->add(function (Request $request,Response $response, $next) use ($app, $publ
     }
     if($request->isOptions()){
         return $response
-            ->withHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
+            ->withHeader('Access-Control-Allow-Origin', '*')
             ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS, PATCH');
     }
