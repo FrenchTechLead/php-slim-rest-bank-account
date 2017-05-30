@@ -1,9 +1,9 @@
 ## php-slim-rest-bank-account-app
 This is a simple REST App built with Php and Slim, it's the back-end part of a bank personal web space.
-
 This app uses JWT Token for authentication, Cross Origin Resource Sharing.
-This web service is hosted on Heroku at the following address: https://php-slim-rest-bank-account.herokuapp.com/
-This is an implementation of a React Client that uses this web Service : https://github.com/Meshredded/react-rest-client-bank-account
+
+1. This web service is [hosted on Heroku](https://php-slim-rest-bank-account.herokuapp.com/)
+2. This is an [implementation](https://github.com/Meshredded/react-rest-client-bank-account) of a React Client that uses this web Service.
  
 ## API:
 | Resource      | HTTP Verb    | Params             |Path |Needs Token ?| 
